@@ -1,4 +1,8 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+// Locally this is a full http://localhost:<port> URL (see .env). On Render,
+// render.yaml wires it to the backend service's bare hostname (no scheme),
+// so prefix https:// in that case.
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = /^https?:\/\//.test(rawBaseUrl) ? rawBaseUrl : `https://${rawBaseUrl}`
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE_URL}${path}`, {
