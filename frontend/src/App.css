@@ -1,0 +1,247 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.app__logo {
+  width: 32px;
+  height: 32px;
+}
+
+.app__brand h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.focus-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.focus-toggle input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--color-accent);
+}
+
+.app__error {
+  background: #fdecea;
+  border: 1px solid #f5c2bd;
+  color: #7a1f14;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app__main {
+  flex: 1;
+}
+
+.full-list-view {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.full-list-view section h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.full-list-view ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.full-list-view__empty-group {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+
+.task-item {
+  background: var(--color-surface);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+  border-left: 4px solid var(--color-muted);
+}
+
+.task-item--deep {
+  border-left-color: var(--color-primary);
+}
+
+.task-item--shallow {
+  border-left-color: var(--color-secondary);
+}
+
+.task-item__main {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.task-item__title--done {
+  text-decoration: line-through;
+  color: var(--color-muted);
+}
+
+.task-item__description {
+  margin: 0.35rem 0 0 1.75rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.task-item__delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.new-task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.new-task-form input,
+.new-task-form select {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: var(--font-body);
+}
+
+.new-task-form button {
+  background: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.focus-view {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.focus-view__badge {
+  align-self: start;
+  background: rgba(242, 165, 65, 0.18);
+  color: #8a5a10;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.focus-view__current {
+  background: var(--color-primary);
+  color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.focus-view__current h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.focus-view__current button {
+  background: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.focus-timer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.focus-timer__time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.focus-timer__toggle {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.focus-view__empty {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 2rem;
+  background: var(--color-surface);
+  border-radius: 16px;
+}
+
+.focus-view__queue h3 {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.focus-view__queue ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}

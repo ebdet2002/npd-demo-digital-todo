@@ -1,0 +1,33 @@
+/* Generated from brand/colors.json + brand/fonts.md per the arr-digital-spec /
+   arr-digital-proto consumption contract. Keep in sync if brand/ changes. */
+
+:root {
+  --color-primary: #2b3a67;
+  --color-secondary: #f2a541;
+  --color-accent: #4fd1c5;
+  --color-background: #f7f7f5;
+  --color-surface: #ffffff;
+  --color-text: #1c1e26;
+  --color-muted: #8a8d98;
+
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+button {
+  font-family: var(--font-heading);
+}
