@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deep/Shallow logo">
+  <!-- Deep: one solid, unbroken block -->
+  <rect x="10" y="30" width="40" height="40" rx="6" fill="#2B3A67" />
+  <!-- Shallow: the same area of attention, fragmented into quick pieces -->
+  <rect x="58" y="30" width="15" height="15" rx="3" fill="#F2A541" />
+  <rect x="77" y="30" width="13" height="13" rx="3" fill="#F2A541" />
+  <rect x="58" y="49" width="13" height="13" rx="3" fill="#F2A541" />
+  <rect x="75" y="55" width="15" height="15" rx="3" fill="#F2A541" />
+  <rect x="58" y="66" width="10" height="10" rx="2" fill="#F2A541" />
+  <!-- Focus accent: a ring around the deep block, the "protected" boundary -->
+  <rect x="6" y="26" width="48" height="48" rx="9" fill="none" stroke="#4FD1C5" stroke-width="3" />
+</svg>

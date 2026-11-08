@@ -1,0 +1,12 @@
+{
+  "name": "Deep/Shallow",
+  "colors": {
+    "primary":    { "hex": "#2B3A67", "usage": "Deep mode: headers, the current-task card, timer ring. Reads as still, weighty — the 'protected' color." },
+    "secondary":  { "hex": "#F2A541", "usage": "Shallow mode: badges, quick-win chips, the hidden-count pill. Reads as light, quick, low-stakes." },
+    "accent":     { "hex": "#4FD1C5", "usage": "Active/interactive accents: Focus Mode toggle when ON, primary buttons, focus rings." },
+    "background": { "hex": "#F7F7F5", "usage": "App background. Warm off-white, not stark white, so brand colors don't fight the canvas." },
+    "surface":    { "hex": "#FFFFFF", "usage": "Cards and panels sitting on top of the background." },
+    "text":       { "hex": "#1C1E26", "usage": "Primary text color, near-black for contrast on light surfaces." },
+    "muted":      { "hex": "#8A8D98", "usage": "Secondary text, placeholders, done/struck-through task labels." }
+  }
+}
