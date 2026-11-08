@@ -6,9 +6,34 @@ import FullListView from './components/FullListView'
 import logoUrl from './assets/logo.svg'
 import './App.css'
 
+const FOCUS_MODE_STORAGE_KEY = 'deep-shallow:focus-mode'
+
+function readStoredFocusMode() {
+  try {
+    return window.localStorage.getItem(FOCUS_MODE_STORAGE_KEY) === 'true'
+  } catch {
+    // localStorage can throw (e.g. disabled/private mode); fall back to OFF
+    // rather than crashing the app.
+    return false
+  }
+}
+
+function writeStoredFocusMode(value) {
+  try {
+    window.localStorage.setItem(FOCUS_MODE_STORAGE_KEY, String(value))
+  } catch {
+    // Non-fatal: the toggle still works for this session, it just won't
+    // survive a reload.
+  }
+}
+
 export default function App() {
   const [tasks, setTasks] = useState([])
-  const [focusMode, setFocusMode] = useState(false)
+  // Focus Mode is restored from localStorage on load. Without this, reloading
+  // the page mid deep-work-block silently dumps you back into the full list
+  // with every shallow task visible again — exactly the interruption the
+  // product exists to prevent.
+  const [focusMode, setFocusMode] = useState(readStoredFocusMode)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -70,7 +95,13 @@ export default function App() {
           <input
             type="checkbox"
             checked={focusMode}
-            onChange={() => setFocusMode((v) => !v)}
+            onChange={() =>
+              setFocusMode((v) => {
+                const next = !v
+                writeStoredFocusMode(next)
+                return next
+              })
+            }
             aria-label="Toggle Focus Mode"
           />
         </label>

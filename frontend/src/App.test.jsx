@@ -22,6 +22,7 @@ const sampleTasks = [
 
 beforeEach(() => {
   vi.clearAllMocks()
+  window.localStorage.clear()
   api.listTasks.mockResolvedValue(sampleTasks)
 })
 
@@ -87,6 +88,31 @@ describe('App', () => {
     await user.click(toggle)
     expect(screen.getByTestId('full-list-view')).toBeInTheDocument()
     expect(screen.getByText('Reply to email')).toBeInTheDocument()
+  })
+
+  it('persists Focus Mode to localStorage and restores it on the next load (v1.1.0)', async () => {
+    const user = userEvent.setup()
+    const { unmount } = render(<App />)
+
+    await waitFor(() => expect(screen.getByTestId('full-list-view')).toBeInTheDocument())
+    await user.click(screen.getByLabelText('Toggle Focus Mode'))
+    expect(screen.getByTestId('focus-view')).toBeInTheDocument()
+    expect(window.localStorage.getItem('deep-shallow:focus-mode')).toBe('true')
+
+    // Simulate a page reload: unmount and remount a fresh App instance.
+    unmount()
+    render(<App />)
+
+    // Even before the task list has finished loading again, Focus Mode
+    // should already be restored from localStorage rather than defaulting
+    // back to the full list.
+    await waitFor(() => expect(screen.getByTestId('focus-view')).toBeInTheDocument())
+    expect(screen.queryByTestId('full-list-view')).not.toBeInTheDocument()
+  })
+
+  it('does not restore Focus Mode when it was never turned on', async () => {
+    render(<App />)
+    await waitFor(() => expect(screen.getByTestId('full-list-view')).toBeInTheDocument())
   })
 
   it('shows an error banner with retry when the API call fails', async () => {

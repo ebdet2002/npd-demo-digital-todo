@@ -3,6 +3,27 @@
 All notable changes to this project are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.1.0] - 2026-11-08
+
+### Fixed
+- **Focus Mode no longer resets on page reload.** Trying v1.0.0 end to end
+  surfaced an immediate rough edge: the whole point of Focus Mode is to
+  protect a block of attention, but reloading the page (or Vite's dev-server
+  hot reload) while focused silently dropped you back to the full list with
+  every shallow task visible again — the exact interruption the product
+  exists to prevent, caused by the browser, not by the user ever asking to
+  leave Focus Mode.
+- `focusMode` is now persisted to `localStorage` (`deep-shallow:focus-mode`)
+  on every toggle and restored on load, wrapped in try/catch so a disabled or
+  unavailable `localStorage` degrades to the old in-session-only behavior
+  instead of crashing the app.
+- Added 2 new frontend tests: one confirming Focus Mode survives an
+  unmount/remount cycle (simulating a reload) with the stored value read
+  before the task list even finishes loading, and one confirming a fresh
+  session with nothing stored still defaults to the full list. Frontend
+  suite: 8/8 passing (up from 6/6 in v1.0.0). Backend suite unchanged at
+  12/12 passing.
+
 ## [1.0.0] - 2026-11-08
 
 Initial working version. Built via the `arr-digital-spec` → `arr-digital-proto`

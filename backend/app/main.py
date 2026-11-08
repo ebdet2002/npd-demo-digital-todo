@@ -7,7 +7,7 @@ from .routers import tasks
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Deep/Shallow API", version="1.0.0")
+app = FastAPI(title="Deep/Shallow API", version="1.1.0")
 
 app.add_middleware(
     CORSMiddleware,
