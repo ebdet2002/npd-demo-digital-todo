@@ -18,7 +18,8 @@ app a **Focus Mode** toggle that changes what's even visible, not just how
 it's sorted.
 
 - **Focus Mode ON** — shallow tasks are hidden entirely. You see only the
-  current deep task and a countdown timer, plus a badge showing how many
+  current deep task and a countdown timer (15/25/50/90 min or a custom
+  length, remembered across reloads), plus a badge showing how many
   shallow tasks are waiting (deferred, not lost).
 - **Focus Mode OFF** — the full list, grouped by Deep / Shallow, with
   shallow tasks surfaced for exactly the moments they're suited for.

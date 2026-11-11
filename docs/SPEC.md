@@ -27,6 +27,8 @@ reactive tasks (email, forms, scheduling) competing for the same todo list.
 - As a user, I want to see how many shallow tasks are hidden while Focus Mode is
   on, so that I know they weren't lost, just deferred.
 - As a user, I want to edit or delete a task, so that I can correct mistakes.
+- As a user, I want to choose my focus block length (presets or a custom
+  number of minutes), so that the timer fits how long I can actually focus.
 - As a user (v2), I want to set a custom timer duration per deep task, so that
   different tasks can get different protected block lengths.
 - As a user (v2), I want Focus Mode to auto-advance to the next deep task when the

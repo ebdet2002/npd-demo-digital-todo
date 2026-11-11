@@ -3,6 +3,21 @@
 All notable changes to this project are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.2.0] - 2026-11-11
+
+### Added
+- **Choosable Focus timer length.** Grad students asked to set their own
+  block length instead of always getting 25 minutes. The Focus Mode timer
+  now offers 15 / 25 / 50 / 90 minute presets plus a **Custom** option that
+  reveals a minutes input (1–180). Picking a length restarts the block.
+- A **Reset** button restarts the current block at the chosen length.
+- The chosen length is persisted to `localStorage`
+  (`deep-shallow:timer-minutes`) with the same try/catch fallback as Focus
+  Mode, and is reused when Focus Mode advances to the next deep task.
+  Frontend-only; no backend or schema change. (Per-task durations stored on
+  each task remain a v2 item.)
+- Added `FocusTimer.test.jsx` (8 tests). Frontend suite: 16/16 passing.
+
 ## [1.1.0] - 2026-11-08
 
 ### Fixed
