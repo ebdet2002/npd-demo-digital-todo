@@ -21,7 +21,9 @@ backend's URL automatically. No manual environment-variable copying needed.
    live URL for the frontend, e.g. `https://deep-shallow-frontend.onrender.com`.
 7. Open that URL — you should see the app, talking to the backend
    automatically (the frontend's `VITE_API_BASE_URL` was set at build time to
-   the backend's Render hostname).
+   the backend's public URL, `https://deep-shallow-backend.onrender.com`).
+   If Render gave your backend a different URL, update that value in
+   `render.yaml` and redeploy the frontend.
 
 ## About the database
 

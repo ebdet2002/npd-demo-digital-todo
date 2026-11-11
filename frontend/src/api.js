@@ -1,6 +1,6 @@
 // Locally this is a full http://localhost:<port> URL (see .env). On Render,
-// render.yaml wires it to the backend service's bare hostname (no scheme),
-// so prefix https:// in that case.
+// render.yaml sets it to the backend's public https URL. A bare hostname
+// (no scheme) also works: https:// is prefixed in that case.
 const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 const API_BASE_URL = /^https?:\/\//.test(rawBaseUrl) ? rawBaseUrl : `https://${rawBaseUrl}`
 

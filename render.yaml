@@ -19,15 +19,14 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
-      # Render exposes the backend's public hostname here (no scheme). The
-      # frontend's api.js prefixes "https://" automatically when this value
-      # doesn't already start with http(s)://, so local dev (which sets a
-      # full http://localhost:... URL via .env) keeps working unchanged.
+      # The backend's PUBLIC URL. Vite bakes this into the bundle at build
+      # time, and the browser calls it directly. Don't use
+      # `fromService: { property: host }` here: that yields Render's
+      # private-network hostname ("deep-shallow-backend"), which browsers
+      # can't resolve. If your backend service gets a different public URL
+      # (e.g. a suffix because the name was taken), update this value.
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: deep-shallow-backend
-          property: host
+        value: https://deep-shallow-backend.onrender.com
     routes:
       - type: rewrite
         source: /*
